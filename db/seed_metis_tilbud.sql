@@ -15,7 +15,7 @@ with ny as (
      'Fem dager der LEGO, Carlsberg og Pandora er klasserommet. Skreddersydd for Business vg1.',
      'Et komplett program der hver dag har et tydelig faglig anker i programfagene Markedsføring og innovasjon, Forretningsdrift og Kultur og samhandling. Vi besøker tre av Danmarks sterkeste merkevarer (LEGO House, Carlsberg, Pandora), kombinerer det med kulturelle høydepunkter (Tivoli, Christiania, Statens Museum for Kunst), og holder kostnadene nede via direktefly fra Bergen, sentralt hostell-hotell og smarte gruppeavtaler. Lærerne har enkeltrom; elevene bor på 5-mannsrom på CABINN City. Hele opplegget følges av en lokal koordinator på bakken.',
      7933, 5,
-     'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200',
+     '/skoleturer/kobenhavn-business-vg1/nyhavn.png',
      array['storby','europa','business','innovasjon','skreddersydd']::text[],
      array[]::date[],
      array['VG1']::text[],
@@ -29,11 +29,11 @@ select n.id, b.url, b.tekst, b.ord
 from ny n
 cross join (
   values
-    ('https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1600', 'Nyhavn — København sentrum', 1),
-    ('https://images.unsplash.com/photo-1559683882-f4ea3a90e8b9?w=1600', 'LEGO House i Billund', 2),
-    ('https://images.unsplash.com/photo-1543340904-0b1d843bccda?w=1600', 'Tivoli om kvelden', 3),
-    ('https://images.unsplash.com/photo-1568797629192-789acf8e4df3?w=1600', 'Strøget shoppinggate', 4),
-    ('https://images.unsplash.com/photo-1599321955726-b1de4d2db20a?w=1600', 'Christiania', 5)
+    ('/skoleturer/kobenhavn-business-vg1/nyhavn.png', 'Nyhavn — København sentrum', 1),
+    ('/skoleturer/kobenhavn-business-vg1/lego-house.png', 'LEGO House interiør, Billund', 2),
+    ('/skoleturer/kobenhavn-business-vg1/carlsberg.png', 'Carlsberg bryggeri-omvisning', 3),
+    ('/skoleturer/kobenhavn-business-vg1/tivoli.png', 'Tivoli ved kveld', 4),
+    ('/skoleturer/kobenhavn-business-vg1/christiania.png', 'Christiania', 5)
 ) as b(url, tekst, ord);
 
 with ny as (select id from pakketurer where slug = 'kobenhavn-business-vg1')
