@@ -26,6 +26,12 @@ export function Header() {
             Om oss
           </Link>
           <Link
+            href="/markedsforing"
+            className="hidden sm:inline-flex px-3 py-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-900"
+          >
+            Slik når vi ut
+          </Link>
+          <Link
             href="/kontakt"
             className="ml-1 inline-flex items-center rounded-md bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 font-medium"
           >

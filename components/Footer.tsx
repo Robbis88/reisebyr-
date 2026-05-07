@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SosialeIkoner } from "./SosialeMedier";
 
 export function Footer() {
   return (
@@ -12,6 +13,9 @@ export function Footer() {
             Skoleturer for videregående til europeiske storbyer — på budsjett,
             tilpasset læreplanen.
           </p>
+          <div className="mt-4">
+            <SosialeIkoner size="sm" />
+          </div>
         </div>
         <div>
           <p className="text-sm font-semibold">Lenker</p>
@@ -24,6 +28,11 @@ export function Footer() {
             <li>
               <Link href="/om-oss" className="hover:underline">
                 Om oss
+              </Link>
+            </li>
+            <li>
+              <Link href="/markedsforing" className="hover:underline">
+                Slik markedsfører vi oss
               </Link>
             </li>
             <li>
