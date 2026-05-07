@@ -12,6 +12,7 @@ export async function getAllePakketurer(): Promise<Pakketur[]> {
            kort_beskrivelse, beskrivelse, pris_nok, varighet_dager,
            hovedbilde_url, tags, avreisedatoer,
            klassetrinn, fag, laeringsmaal, gruppe_min, gruppe_max,
+           hotel_navn, hotel_beskrivelse, hotel_features,
            opprettet_at
     from pakketurer
     order by opprettet_at desc
@@ -27,6 +28,7 @@ export async function getPakketurBySlug(
            kort_beskrivelse, beskrivelse, pris_nok, varighet_dager,
            hovedbilde_url, tags, avreisedatoer,
            klassetrinn, fag, laeringsmaal, gruppe_min, gruppe_max,
+           hotel_navn, hotel_beskrivelse, hotel_features,
            opprettet_at
     from pakketurer
     where slug = ${slug}

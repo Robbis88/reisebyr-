@@ -19,6 +19,9 @@ create table if not exists pakketurer (
   laeringsmaal    text not null default '',
   gruppe_min      integer,
   gruppe_max      integer,
+  hotel_navn      text not null default '',
+  hotel_beskrivelse text not null default '',
+  hotel_features  text[] not null default '{}',
   opprettet_at    timestamptz not null default now()
 );
 

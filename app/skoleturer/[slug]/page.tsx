@@ -130,6 +130,44 @@ export default async function SkoleturDetalj({ params }: Props) {
           </section>
         )}
 
+        {tur.hotel_navn && (
+          <section className="mt-12">
+            <h2 className="text-xl font-semibold">Overnatting</h2>
+            <div className="mt-4 rounded-lg ring-1 ring-zinc-200 dark:ring-zinc-800 p-6 sm:p-8">
+              <h3 className="text-lg font-semibold">{tur.hotel_navn}</h3>
+              {tur.hotel_beskrivelse && (
+                <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                  {tur.hotel_beskrivelse}
+                </p>
+              )}
+              {tur.hotel_features.length > 0 && (
+                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {tur.hotel_features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex gap-2 text-sm text-zinc-700 dark:text-zinc-300"
+                    >
+                      <svg
+                        className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-600 dark:text-sky-400"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden
+                      >
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </section>
+        )}
+
         {tur.dager.length > 0 && (
           <section className="mt-12">
             <h2 className="text-xl font-semibold">Reiseplan</h2>

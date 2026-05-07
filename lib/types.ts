@@ -16,6 +16,9 @@ export type Pakketur = {
   laeringsmaal: string;
   gruppe_min: number | null;
   gruppe_max: number | null;
+  hotel_navn: string;
+  hotel_beskrivelse: string;
+  hotel_features: string[];
   opprettet_at: string;
 };
 
