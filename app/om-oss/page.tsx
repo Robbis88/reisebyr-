@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -41,11 +42,13 @@ export default function OmOssPage() {
           <Gründer
             navn="Carmen Toro"
             tittel="Reiserådgiver"
+            bildeSrc="/team/carmen.png"
             bio="Carmen har brent for gode skoleturer helt siden hun selv gikk linjen for reiseliv på videregående. Som reiserådgiver er det hun som setter sammen programmene og sørger for at hver dag på turen har faglig substans — og at det praktiske faktisk fungerer når dere er på plass."
           />
           <Gründer
             navn="Robert Leganger"
             tittel="Daglig leder"
+            bildeSrc="/team/robert.png"
             bio="Robert har bakgrunn fra forretningsdrift og brenner for å bygge opp nye virksomheter. I NextStopTravel har han ansvaret for det operative — leverandøravtaler, økonomi og dialog med skolene — og bruker erfaringen til å holde kostnadene lave så tilbudet til klassen blir så godt som mulig."
           />
         </div>
@@ -118,15 +121,23 @@ function Gründer({
   navn,
   tittel,
   bio,
+  bildeSrc,
 }: {
   navn: string;
   tittel: string;
   bio: string;
+  bildeSrc: string;
 }) {
   return (
     <div className="rounded-lg ring-1 ring-zinc-200 dark:ring-zinc-800 p-6">
-      <div className="aspect-square rounded-md bg-gradient-to-br from-sky-100 to-zinc-100 dark:from-sky-950 dark:to-zinc-900 mb-5 flex items-center justify-center text-zinc-400 text-sm">
-        Bilde kommer
+      <div className="relative aspect-square rounded-md mb-5 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+        <Image
+          src={bildeSrc}
+          alt={`Portrett av ${navn}`}
+          fill
+          sizes="(max-width: 640px) 100vw, 320px"
+          className="object-cover"
+        />
       </div>
       <h3 className="text-lg font-semibold">{navn}</h3>
       <p className="text-sm text-sky-700 dark:text-sky-400">{tittel}</p>
