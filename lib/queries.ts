@@ -35,20 +35,24 @@ export async function getPakketurBySlug(
   const tur = turRows[0] as Pakketur | undefined;
   if (!tur) return null;
 
-  const [bilder, dager] = await Promise.all([
+  const [bilderRows, dagerRows] = await Promise.all([
     sql`
       select id, pakketur_id, bilde_url, bildetekst, sort_order
       from pakketur_bilder
       where pakketur_id = ${tur.id}
       order by sort_order asc
-    ` as Promise<PakketurBilde[]>,
+    `,
     sql`
       select id, pakketur_id, dag_nummer, tittel, beskrivelse
       from pakketur_dager
       where pakketur_id = ${tur.id}
       order by dag_nummer asc
-    ` as Promise<PakketurDag[]>,
+    `,
   ]);
 
-  return { ...tur, bilder, dager };
+  return {
+    ...tur,
+    bilder: bilderRows as PakketurBilde[],
+    dager: dagerRows as PakketurDag[],
+  };
 }
