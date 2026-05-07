@@ -1,7 +1,12 @@
 import { neon } from "@neondatabase/serverless";
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL er ikke satt i .env.local");
+const rawUrl = process.env.DATABASE_URL ?? "";
+const cleanUrl = rawUrl.replace(/\s+/g, "");
+
+if (!cleanUrl) {
+  throw new Error(
+    "DATABASE_URL er ikke satt. Sjekk .env.local lokalt eller miljøvariabler i Vercel.",
+  );
 }
 
-export const sql = neon(process.env.DATABASE_URL);
+export const sql = neon(cleanUrl);
