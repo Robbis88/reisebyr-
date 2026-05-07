@@ -7,13 +7,14 @@ with ny as (
   insert into pakketurer
     (slug, tittel, destinasjon, land, kort_beskrivelse, beskrivelse,
      pris_nok, varighet_dager, hovedbilde_url, tags, avreisedatoer,
-     klassetrinn, fag, laeringsmaal, gruppe_min, gruppe_max)
+     klassetrinn, fag, laeringsmaal, gruppe_min, gruppe_max,
+     hotel_navn, hotel_beskrivelse, hotel_features)
   values
     ('kobenhavn-business-vg1',
      'København for Business vg1 — innovasjon, design og nordisk forretningskultur',
      'København', 'Danmark',
      'Fem dager der LEGO, Carlsberg og Pandora er klasserommet. Skreddersydd for Business vg1.',
-     'Et komplett program der hver dag har et tydelig faglig anker i programfagene Markedsføring og innovasjon, Forretningsdrift og Kultur og samhandling. Vi besøker tre av Danmarks sterkeste merkevarer (LEGO House, Carlsberg, Pandora), kombinerer det med kulturelle høydepunkter (Tivoli, Christiania, Statens Museum for Kunst), og holder kostnadene nede via direktefly fra Bergen, sentralt hostell-hotell og smarte gruppeavtaler. Lærerne har enkeltrom; elevene bor på 5-mannsrom på CABINN City. Hele opplegget følges av en lokal koordinator på bakken.',
+     'Et komplett program der hver dag har et tydelig faglig anker i programfagene Markedsføring og innovasjon, Forretningsdrift og Kultur og samhandling. Vi besøker tre av Danmarks sterkeste merkevarer (LEGO House, Carlsberg, Pandora), kombinerer det med kulturelle høydepunkter (Tivoli, Christiania, Statens Museum for Kunst), og holder kostnadene nede via direktefly fra Bergen, sentralt hostell-hotell og smarte gruppeavtaler. Hele opplegget følges av en lokal koordinator på bakken — og det er rom for at klassen får kose seg sammen mellom programmet.',
      7933, 5,
      '/skoleturer/kobenhavn-business-vg1/nyhavn.png',
      array['storby','europa','business','innovasjon','skreddersydd']::text[],
@@ -21,7 +22,17 @@ with ny as (
      array['VG1']::text[],
      array['Markedsføring og innovasjon','Forretningsdrift','Kultur og samhandling']::text[],
      'Elevene skal kunne analysere kjente nordiske merkevarer og deres markedsføringsstrategier, drøfte forretningsmodeller bak globale danske selskaper, og reflektere over hvordan kultur former forretningsdrift i Norden.',
-     30, 32)
+     30, 32,
+     'CABINN City København',
+     'Sentralt budget-hotell rett ved Tivoli og Hovedbanegården. Velkjent kjede blant skoleklasser — rene og funksjonelle rom, enkel adgang til kollektivtransport, og veldig korte avstander til alle høydepunktene i programmet.',
+     array[
+       'Sentralt beliggende — 5 min til Tivoli og hovedstasjonen',
+       '5-mannsrom for elever',
+       'Enkeltrom for lærere',
+       'Alle rom med eget bad og gratis WiFi',
+       'Frokost inkludert hver dag',
+       'Resepsjon 24/7 og gratis bagasjeoppbevaring'
+     ]::text[])
   returning id
 )
 insert into pakketur_bilder (pakketur_id, bilde_url, bildetekst, sort_order)
