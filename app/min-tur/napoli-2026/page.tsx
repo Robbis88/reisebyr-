@@ -447,26 +447,29 @@ function Vaer() {
           </div>
         </div>
       )}
-      {data.daily && (
-        <div className="grid grid-cols-4 gap-3 pt-4 border-t border-white/10">
-          {data.daily.time.slice(0, 4).map((d, i) => (
-            <div key={d} className="text-center">
-              <p className="text-xs text-zinc-500 mb-1">
-                {new Date(d).toLocaleDateString("nb-NO", { weekday: "short" })}
-              </p>
-              <p className="text-2xl mb-1">
-                {vaerKodeIkon(data.daily!.weather_code[i])}
-              </p>
-              <p className="text-sm tabular-nums">
-                {Math.round(data.daily.temperature_2m_max[i])}°
-                <span className="text-zinc-500 ml-1">
-                  {Math.round(data.daily.temperature_2m_min[i])}°
-                </span>
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
+      {data.daily && (() => {
+        const daily = data.daily;
+        return (
+          <div className="grid grid-cols-4 gap-3 pt-4 border-t border-white/10">
+            {daily.time.slice(0, 4).map((d, i) => (
+              <div key={d} className="text-center">
+                <p className="text-xs text-zinc-500 mb-1">
+                  {new Date(d).toLocaleDateString("nb-NO", { weekday: "short" })}
+                </p>
+                <p className="text-2xl mb-1">
+                  {vaerKodeIkon(daily.weather_code[i])}
+                </p>
+                <p className="text-sm tabular-nums">
+                  {Math.round(daily.temperature_2m_max[i])}°
+                  <span className="text-zinc-500 ml-1">
+                    {Math.round(daily.temperature_2m_min[i])}°
+                  </span>
+                </p>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
     </div>
   );
 }
