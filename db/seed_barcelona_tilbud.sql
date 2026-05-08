@@ -45,7 +45,10 @@ cross join (
     ('/skoleturer/barcelona-business-vg1/park-guell.png', 'Park Güell — modernisme i bypark-format', 2),
     ('/skoleturer/barcelona-business-vg1/gotiske-kvarter.png', 'Gotiske kvarter — middelalderens Barcelona', 3),
     ('/skoleturer/barcelona-business-vg1/la-boqueria.png', 'La Boqueria — markedet som lokal handelsarena', 4),
-    ('/skoleturer/barcelona-business-vg1/montjuic.png', 'Montjuïc — utsikt over byen', 5)
+    ('/skoleturer/barcelona-business-vg1/montjuic.png', 'Montjuïc — utsikt over byen', 5),
+    ('/skoleturer/barcelona-business-vg1/hotel-4-mann.png', 'Eksempel: 4-mannsrom', 6),
+    ('/skoleturer/barcelona-business-vg1/hotel-6-mann.png', 'Eksempel: 6-mannsrom', 7),
+    ('/skoleturer/barcelona-business-vg1/hotel-enkelt.png', 'Enkeltrom for lærere', 8)
 ) as b(url, tekst, ord);
 
 with ny as (select id from pakketurer where slug = 'barcelona-business-vg1')
