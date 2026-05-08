@@ -15,7 +15,7 @@ with ny as (
      'København', 'Danmark',
      'Fem dager der LEGO, Carlsberg og Pandora er klasserommet. Skreddersydd for Business vg1.',
      'Et komplett program der hver dag har et tydelig faglig anker i programfagene Markedsføring og innovasjon, Forretningsdrift og Kultur og samhandling. Vi besøker tre av Danmarks sterkeste merkevarer (LEGO House, Carlsberg, Pandora), kombinerer det med kulturelle høydepunkter (Tivoli, Christiania, Statens Museum for Kunst), og holder kostnadene nede via direktefly fra Bergen, sentralt hostell-hotell og smarte gruppeavtaler. Hele opplegget følges av en lokal koordinator på bakken — og det er rom for at klassen får kose seg sammen mellom programmet.',
-     7933, 5,
+     8290, 5,
      '/skoleturer/kobenhavn-business-vg1/nyhavn.png',
      array['storby','europa','business','innovasjon','skreddersydd']::text[],
      array[]::date[],

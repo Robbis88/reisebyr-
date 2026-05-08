@@ -16,7 +16,7 @@ with ny as (
      'Barcelona', 'Spania',
      'Fem dager der Sagrada Família, Gaudí og La Boqueria er klasserommet. Skreddersydd for Business vg1.',
      'Barcelona er et utstillingsvindu for hvordan kultur, arkitektur og merkevarer kan løfte en hel by til å bli en av Europas mest besøkte destinasjoner. Vi ser hvordan Gaudís arkitektur er blitt katalansk identitet og global merkevare, hvordan La Boqueria-markedet er en levende lærebok i lokal handel, og hvordan moderne bydeler som Poblenou kombinerer bærekraft og næringsliv. Hver dag har faglig anker i programfagene, og det er rom for at klassen får kose seg sammen mellom programmet.',
-     7438, 5,
+     7990, 5,
      '/skoleturer/barcelona-business-vg1/sagrada-familia.png',
      array['storby','europa','business','arkitektur','kultur','skreddersydd']::text[],
      array[]::date[],

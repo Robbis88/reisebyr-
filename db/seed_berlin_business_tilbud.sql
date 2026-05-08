@@ -16,7 +16,7 @@ with ny as (
      'Berlin', 'Tyskland',
      'Fem dager der Berlinmuren, Brandenburger Tor og moderne Kreuzberg er klasserommet. Skreddersydd for Business vg1.',
      'Berlin er en levende lærebok i hvordan en by gjenoppbygger seg selv. Vi følger byens reise fra delt hovedstad i kald krig til Europas viktigste kreative og kommersielle senter — og ser hvordan historie, politikk og næringsliv henger uløselig sammen. Hver dag har et tydelig faglig anker, og rom for at klassen får kose seg sammen mellom programmet.',
-     7438, 5,
+     7790, 5,
      '/skoleturer/berlin-business-vg1/brandenburger-tor.png',
      array['storby','europa','business','historie','politikk','skreddersydd']::text[],
      array[]::date[],
