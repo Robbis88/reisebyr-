@@ -180,7 +180,7 @@ function playVoice(
 
     audio.src = src;
     audio.currentTime = 0;
-    audio.volume = 0.95;
+    audio.volume = 1;
     audio.play().catch(() => {
       cleanup();
       resolve("errored");
@@ -194,6 +194,21 @@ export function PresentationController() {
   const bgMusicRef = useRef<HTMLAudioElement>(null);
   const voiceRef = useRef<HTMLAudioElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  const duckMusic = (down: boolean) => {
+    const music = bgMusicRef.current;
+    if (!music) return;
+    const target = down ? 0.03 : 0.08;
+    const start = music.volume;
+    const startTime = performance.now();
+    const duration = 400;
+    const step = (now: number) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      music.volume = start + (target - start) * t;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
 
   const runFromIndex = useCallback(async (startIndex: number) => {
     abortRef.current?.abort();
@@ -214,8 +229,10 @@ export function PresentationController() {
       if (ac.signal.aborted) return;
 
       if (stop.voice && voice) {
+        duckMusic(true);
         const result = await playVoice(voice, stop.voice, ac.signal);
         if (ac.signal.aborted) return;
+        duckMusic(false);
         if (result === "ended") {
           await sleep(1500, ac.signal);
         } else {
@@ -235,7 +252,7 @@ export function PresentationController() {
   const start = () => {
     setMode("playing");
     if (bgMusicRef.current) {
-      bgMusicRef.current.volume = 0.18;
+      bgMusicRef.current.volume = 0.06;
       bgMusicRef.current.currentTime = 0;
       bgMusicRef.current.play().catch(() => {});
     }
