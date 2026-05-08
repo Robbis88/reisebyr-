@@ -43,9 +43,9 @@ cross join (
   values
     ('/skoleturer/berlin-business-vg1/brandenburger-tor.png', 'Brandenburger Tor — symbolet på et samlet Tyskland', 1),
     ('/skoleturer/berlin-business-vg1/east-side-gallery.png', 'East Side Gallery — Berlinmuren som kunstverk', 2),
-    ('/skoleturer/berlin-business-vg1/checkpoint-charlie.png', 'Checkpoint Charlie — den kalde krigens grenseovergang', 3),
-    ('/skoleturer/berlin-business-vg1/holocaust-minne.png', 'Holocaust-minnesmerket', 4),
-    ('/skoleturer/berlin-business-vg1/kreuzberg.png', 'Kreuzberg — moderne Berlin og kreativ næring', 5),
+    ('/skoleturer/berlin-business-vg1/berlin-mitte.png', 'Berlin Mitte — sentrum og hostell-kvarteret', 3),
+    ('/skoleturer/berlin-business-vg1/markthalle-neun.png', 'Markthalle Neun — moderne markedskultur', 4),
+    ('/skoleturer/berlin-business-vg1/fernsehturm.png', 'Fernsehturm og Berlin ved solnedgang', 5),
     ('/skoleturer/berlin-business-vg1/hotel-4-mann.png', 'Eksempel: 4-mannsrom', 6),
     ('/skoleturer/berlin-business-vg1/hotel-6-mann.png', 'Eksempel: 6-mannsrom', 7),
     ('/skoleturer/berlin-business-vg1/hotel-enkelt.png', 'Enkeltrom for lærere', 8)
