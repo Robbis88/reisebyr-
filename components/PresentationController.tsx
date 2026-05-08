@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 type Stop = {
   id: string;
   duration: number;
+  voice?: string;
   subtitle: string;
 };
 
@@ -13,80 +14,93 @@ const stops: Stop[] = [
   {
     id: "slide-1",
     duration: 25000,
+    voice: "/audio/voice/01.mp3",
     subtitle:
-      "NextStopTravel presenterer en skreddersydd studietur til Napoli — for Metis videregående, Business vg1. Fem dager. Fire netter.",
+      "Hei, og takk for at vi får muligheten til å presentere vårt forslag til studietur for Metis. Vi har skapt mer enn en skoletur — en opplevelse som kombinerer faglig innhold, kultur, historie og minner for livet.",
   },
   {
     id: "slide-2",
-    duration: 40000,
+    duration: 35000,
+    voice: "/audio/voice/02.mp3",
     subtitle:
-      "Hvorfor Napoli? Fordi det er mer enn en skoletur. Pompeii og Vesuv kommer til live. Pizza napoletana er UNESCO-immateriell kulturarv. Hver opplevelse er forankret i pensum.",
+      "Napoli er en av Europas mest autentiske og historiske storbyer. Byen kombinerer spektakulær natur, italiensk kultur, historie og moderne storbyliv på en helt unik måte — romersk historie, Vesuv, Pompeii, matkultur, urbanisering, kunst og arkitektur.",
   },
   {
     id: "dag-1",
-    duration: 15000,
+    duration: 20000,
+    voice: "/audio/voice/03.mp3",
     subtitle:
-      "Dag én: Direktefly fra Bergen, innsjekk på Hotel Partenopeo og velkomstmiddag — autentisk pizza napoletana.",
+      "Dag én reiser gruppen fra Bergen til Napoli. Etter innsjekk starter turen med en rolig kveldsvandring langs havneområdet og gamlebyen — elevenes første møte med Napoli som historisk middelhavsby.",
   },
   {
     id: "dag-2",
-    duration: 15000,
+    duration: 18000,
+    voice: "/audio/voice/04.mp3",
     subtitle:
-      "Dag to: Guidet byvandring i UNESCO-sentrum, Cappella Sansevero og lokale markeder.",
+      "Dag to viet til Napolis historiske sjel: Cappella Sansevero med det berømte «Cristo velato», guidet vandring gjennom Spaccanapoli, lokale markeder og UNESCO-sentrum.",
   },
   {
     id: "dag-3",
-    duration: 15000,
+    duration: 30000,
+    voice: "/audio/voice/05.mp3",
     subtitle:
-      "Dag tre: Heldagsutflukt til Pompeii og opp på Vesuv-krateret med fantastisk utsikt.",
+      "Dag tre fokuserer på historie, naturkrefter og romersk kultur. Gruppen besøker Pompeii — en av verdens mest kjente arkeologiske byer — og opplever hvordan livet i Romerriket så ut før Vesuvs utbrudd i år 79.",
   },
   {
     id: "dag-4",
-    duration: 15000,
+    duration: 20000,
+    voice: "/audio/voice/06.mp3",
     subtitle:
-      "Dag fire: Museo Archeologico, bedriftsbesøk hos lokal pizzeria — matkultur som forretningsmodell.",
+      "Dag fire kombinerer arkeologi og næringsliv. Museo Archeologico Nazionale med verdens største Pompeii-samling, og bedriftsbesøk hos lokal pizzeria — matkultur som forretningsmodell.",
   },
   {
     id: "dag-5",
-    duration: 15000,
+    duration: 16000,
+    voice: "/audio/voice/07.mp3",
     subtitle:
-      "Dag fem: Oppsummering, vandring til Castel dell'Ovo og hjemreise med minner for livet.",
+      "Dag fem er refleksjonsdagen. Frokost, felles oppsummering, kort vandring forbi Castel dell'Ovo, og deretter hjemreise — med minner som varer.",
   },
   {
     id: "slide-4",
-    duration: 30000,
+    duration: 28000,
+    voice: "/audio/voice/08.mp3",
     subtitle:
-      "Hotel Partenopeo Student Stay. Sentralt og trygt. 3- til 6-mannsrom for elever, enkeltrom for lærere. Fem minutter til metro.",
+      "Vi har valgt sentral og skolevennlig gruppeovernatting. Elevene bor på 4-, 5- eller 6-mannsrom, lærerne får egne enkeltrom. Frokost inkludert hver dag, og kort avstand til kollektivtransport og byens severdigheter.",
   },
   {
     id: "slide-5",
-    duration: 50000,
+    duration: 28000,
+    voice: "/audio/voice/09.mp3",
     subtitle:
-      "Det faglige er kjernen, ikke et tillegg. Læringsmål forankret i Markedsføring og innovasjon, Forretningsdrift, og Kultur og samhandling. Hver opplevelse bundet til pensum.",
+      "Det faglige innholdet er en sentral del av hele reisen. Hver dag inneholder temaer knyttet til historie, samfunnsfag, geografi, kulturforståelse, urbanisering og kommunikasjon — refleksjonsoppgaver, gruppearbeid og presentasjoner underveis.",
   },
   {
     id: "slide-6",
-    duration: 30000,
+    duration: 26000,
+    voice: "/audio/voice/10.mp3",
     subtitle:
-      "Det elevene faktisk husker: pizza fra steinovn, solnedgang over Vesuv, Pompeii i morgenlys. Det de prater om når de kommer hjem.",
+      "Dag tre og fire kombinerer kultur og moderne storbyliv: Napolis historiske sentrum, lokale markeder, italiensk matkultur, arkitektur og kirker, livet langs middelhavskysten — pluss en kulturell aktivitet på kvelden.",
   },
   {
     id: "slide-7",
-    duration: 30000,
+    duration: 22000,
+    voice: "/audio/voice/11.mp3",
     subtitle:
-      "Trygghet hele veien. Carmen og Robert er kun en telefonsamtale unna. Norsk kontaktperson, døgnvakt, lokal reiseleder.",
+      "Trygghet og organisering er avgjørende. Reisen er planlagt med sentral beliggenhet, trygg transport, tydelig dagsprogram, enkel logistikk og tilgjengelig kontaktperson — tilpasset skolegrupper.",
   },
   {
     id: "slide-8",
-    duration: 50000,
+    duration: 26000,
+    voice: "/audio/voice/12.mp3",
     subtitle:
-      "Budsjett: 238 000 kroner. 7 438 kroner per person. Alt inkludert: fly, hotell, frokost, to middager, sightseeing, faglig program. Ingen skjulte kostnader.",
+      "Totalbudsjettet er 238 000 kroner. Inkludert: flyreise, lokaltransport, overnatting, frokost hver dag, to middager, aktiviteter, museumsbesøk og kulturelle opplevelser. Størst mulig verdi innenfor budsjettet.",
   },
   {
     id: "slide-9",
-    duration: 25000,
+    duration: 26000,
+    voice: "/audio/voice/13.mp3",
     subtitle:
-      "Mer enn en skoletur. En opplevelse elevene husker resten av livet. NextStopTravel — Bergen.",
+      "Vi ønsker å skape en studietur som kombinerer læring, kultur og opplevelser elevene husker lenge etter at reisen er over. Napoli gir en unik kombinasjon — og en opplevelse som skiller seg ut. Takk for tiden deres.",
   },
 ];
 
@@ -133,66 +147,124 @@ function sleep(ms: number, signal: AbortSignal) {
   });
 }
 
+function playVoice(
+  audio: HTMLAudioElement,
+  src: string,
+  signal: AbortSignal,
+): Promise<"ended" | "errored" | "aborted"> {
+  return new Promise((resolve) => {
+    if (signal.aborted) return resolve("aborted");
+
+    const cleanup = () => {
+      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener("error", onError);
+      signal.removeEventListener("abort", onAbort);
+    };
+    const onEnded = () => {
+      cleanup();
+      resolve("ended");
+    };
+    const onError = () => {
+      cleanup();
+      resolve("errored");
+    };
+    const onAbort = () => {
+      cleanup();
+      audio.pause();
+      resolve("aborted");
+    };
+
+    audio.addEventListener("ended", onEnded);
+    audio.addEventListener("error", onError);
+    signal.addEventListener("abort", onAbort);
+
+    audio.src = src;
+    audio.currentTime = 0;
+    audio.volume = 0.95;
+    audio.play().catch(() => {
+      cleanup();
+      resolve("errored");
+    });
+  });
+}
+
 export function PresentationController() {
   const [mode, setMode] = useState<Mode>("idle");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const bgMusicRef = useRef<HTMLAudioElement>(null);
+  const voiceRef = useRef<HTMLAudioElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   const runFromIndex = useCallback(async (startIndex: number) => {
     abortRef.current?.abort();
     const ac = new AbortController();
     abortRef.current = ac;
+    const voice = voiceRef.current;
 
     for (let i = startIndex; i < stops.length; i++) {
       if (ac.signal.aborted) return;
+      const stop = stops[i];
       setCurrentIndex(i);
 
-      const el = document.getElementById(stops[i].id);
+      const el = document.getElementById(stop.id);
       if (el) {
-        const headerOffset = 0;
-        const targetY = el.offsetTop - headerOffset;
+        const targetY = el.offsetTop;
         await smoothScrollTo(targetY, 1800, ac.signal);
       }
       if (ac.signal.aborted) return;
-      await sleep(stops[i].duration, ac.signal);
+
+      if (stop.voice && voice) {
+        const result = await playVoice(voice, stop.voice, ac.signal);
+        if (ac.signal.aborted) return;
+        if (result === "ended") {
+          await sleep(1500, ac.signal);
+        } else {
+          await sleep(stop.duration, ac.signal);
+        }
+      } else {
+        await sleep(stop.duration, ac.signal);
+      }
     }
 
     if (!ac.signal.aborted) {
       setMode("finished");
+      bgMusicRef.current?.pause();
     }
   }, []);
 
   const start = () => {
     setMode("playing");
-    if (audioRef.current) {
-      audioRef.current.volume = 0.3;
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
+    if (bgMusicRef.current) {
+      bgMusicRef.current.volume = 0.18;
+      bgMusicRef.current.currentTime = 0;
+      bgMusicRef.current.play().catch(() => {});
     }
     runFromIndex(0);
   };
 
   const pause = () => {
     setMode("paused");
-    audioRef.current?.pause();
+    bgMusicRef.current?.pause();
+    voiceRef.current?.pause();
     abortRef.current?.abort();
   };
 
   const resume = () => {
     setMode("playing");
-    audioRef.current?.play().catch(() => {});
+    bgMusicRef.current?.play().catch(() => {});
     runFromIndex(currentIndex);
   };
 
   const skip = () => {
     abortRef.current?.abort();
+    voiceRef.current?.pause();
     runFromIndex(Math.min(currentIndex + 1, stops.length - 1));
   };
 
   const exit = () => {
     abortRef.current?.abort();
-    audioRef.current?.pause();
+    bgMusicRef.current?.pause();
+    voiceRef.current?.pause();
     setMode("idle");
     setCurrentIndex(0);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -211,19 +283,15 @@ export function PresentationController() {
     .reduce((s, x) => s + x.duration, 0);
   const progressPct = Math.min(
     100,
-    ((elapsedBeforeCurrent + stops[currentIndex].duration / 2) / TOTAL_DURATION) * 100,
+    ((elapsedBeforeCurrent + stops[currentIndex].duration / 2) / TOTAL_DURATION) *
+      100,
   );
 
   return (
     <>
-      <audio
-        ref={audioRef}
-        src="/audio/ambient.mp3"
-        loop
-        preload="auto"
-      />
+      <audio ref={bgMusicRef} src="/audio/ambient.mp3" loop preload="auto" />
+      <audio ref={voiceRef} preload="auto" />
 
-      {/* Idle: big play button overlay on hero */}
       <AnimatePresence>
         {mode === "idle" && (
           <motion.div
@@ -261,7 +329,6 @@ export function PresentationController() {
         )}
       </AnimatePresence>
 
-      {/* Playing/Paused: progress bar at top */}
       <AnimatePresence>
         {(mode === "playing" || mode === "paused") && (
           <motion.div
@@ -290,7 +357,6 @@ export function PresentationController() {
         )}
       </AnimatePresence>
 
-      {/* Subtitle bar at bottom */}
       <AnimatePresence mode="wait">
         {(mode === "playing" || mode === "paused") && (
           <motion.div
@@ -302,7 +368,7 @@ export function PresentationController() {
             transition={{ duration: 0.6 }}
           >
             <div className="max-w-3xl mx-auto text-center">
-              <p className="inline-block px-6 py-3 rounded-xl bg-black/70 backdrop-blur-md ring-1 ring-white/10 text-base sm:text-xl text-white leading-relaxed">
+              <p className="inline-block px-6 py-3 rounded-xl bg-black/75 backdrop-blur-md ring-1 ring-white/10 text-base sm:text-lg text-white leading-relaxed">
                 {stops[currentIndex].subtitle}
               </p>
             </div>
@@ -310,7 +376,6 @@ export function PresentationController() {
         )}
       </AnimatePresence>
 
-      {/* Controls bottom-right */}
       <AnimatePresence>
         {(mode === "playing" || mode === "paused") && (
           <motion.div
@@ -358,7 +423,6 @@ export function PresentationController() {
         )}
       </AnimatePresence>
 
-      {/* Finished: replay button */}
       <AnimatePresence>
         {mode === "finished" && (
           <motion.div
