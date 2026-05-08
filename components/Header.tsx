@@ -5,7 +5,11 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/presentasjon")) return null;
+  if (
+    pathname?.startsWith("/presentasjon") ||
+    pathname?.startsWith("/min-tur")
+  )
+    return null;
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-black/80 backdrop-blur">

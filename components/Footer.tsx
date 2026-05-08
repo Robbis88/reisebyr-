@@ -6,7 +6,11 @@ import { SosialeIkoner } from "./SosialeMedier";
 
 export function Footer() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/presentasjon")) return null;
+  if (
+    pathname?.startsWith("/presentasjon") ||
+    pathname?.startsWith("/min-tur")
+  )
+    return null;
 
   return (
     <footer className="mt-auto border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black">
