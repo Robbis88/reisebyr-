@@ -1,7 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { SosialeIkoner } from "./SosialeMedier";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/presentasjon")) return null;
+
   return (
     <footer className="mt-auto border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black">
       <div className="mx-auto max-w-6xl px-6 py-12 grid gap-8 sm:grid-cols-3">
