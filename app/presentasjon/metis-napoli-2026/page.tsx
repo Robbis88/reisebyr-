@@ -261,20 +261,359 @@ export default function MetisNapoliPresentation() {
         </div>
       </section>
 
-      {/* Placeholder for slides 4-9 */}
+      {/* SLIDE 4 — Hotell */}
+      <section className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.p
+            className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            Overnatting
+          </motion.p>
+          <motion.h2
+            className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            Hotel Partenopeo
+            <br />
+            <span className="text-zinc-500">Student Stay.</span>
+          </motion.h2>
+          <motion.p
+            className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            Moderne, trygt og sentralt — midt i hjertet av Napoli. Korte
+            avstander til metro, severdigheter og strandpromenaden.
+          </motion.p>
+
+          <div className="mt-16 grid sm:grid-cols-3 gap-4">
+            {hotelImages.map((h, i) => (
+              <motion.div
+                key={h.label}
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/10"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.1 * i }}
+              >
+                <Image
+                  src={h.src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-sm uppercase tracking-widest text-amber-300/90">
+                    Eksempel
+                  </p>
+                  <p className="text-xl font-semibold mt-1">{h.label}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="mt-16 grid sm:grid-cols-2 gap-x-12 gap-y-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+          >
+            {hotelFeatures.map((f) => (
+              <div key={f} className="flex items-start gap-4">
+                <svg
+                  className="mt-1 h-5 w-5 flex-shrink-0 text-amber-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-lg text-zinc-200">{f}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SLIDE 5 — Det faglige */}
+      <section className="relative min-h-screen py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <Image
+            src="/skoleturer/napoli-business-vg1/museo.png"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto z-10">
+          <motion.p
+            className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            Det faglige
+          </motion.p>
+          <motion.h2
+            className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            Et undervisningsopplegg
+            <br />
+            <span className="text-zinc-500">— ikke bare en tur.</span>
+          </motion.h2>
+
+          <motion.div
+            className="mt-12 rounded-2xl bg-amber-400/10 ring-1 ring-amber-300/30 p-8 sm:p-10 max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-amber-300 mb-4">
+              Læringsmål
+            </p>
+            <p className="text-lg sm:text-xl text-zinc-100 leading-relaxed">
+              Elevene skal kunne forklare hvordan historie, kultur og næringsliv
+              henger sammen i en europeisk storby, analysere matkultur (pizza
+              napoletana) som forretningskonsept og immateriell kulturarv, og
+              reflektere over arkeologi som kilde til samfunnsforståelse.
+            </p>
+          </motion.div>
+
+          <div className="mt-16 grid sm:grid-cols-3 gap-6">
+            {programfag.map((f, i) => (
+              <motion.div
+                key={f.title}
+                className="rounded-2xl ring-1 ring-white/10 p-7 bg-zinc-900/40"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.1 * i }}
+              >
+                <p className="text-3xl mb-4">{f.icon}</p>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {f.title}
+                </h3>
+                <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
+                  {f.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="mt-16 max-w-4xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 mb-6">
+              Eksempel: opplevelse → pensum-kobling
+            </p>
+            <ul className="space-y-3">
+              {koblinger.map((k) => (
+                <li
+                  key={k.fra}
+                  className="flex items-center gap-4 sm:gap-6 text-base sm:text-lg"
+                >
+                  <span className="text-zinc-300 font-medium">{k.fra}</span>
+                  <span className="text-amber-400">→</span>
+                  <span className="text-zinc-400">{k.til}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SLIDE 6 — Kultur & opplevelser */}
+      <section className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.p
+            className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            Kultur og opplevelser
+          </motion.p>
+          <motion.h2
+            className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            Det elevene
+            <br />
+            <span className="text-zinc-500">faktisk husker.</span>
+          </motion.h2>
+          <motion.p
+            className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            Det de prater om når de kommer hjem. Det de viser foreldrene på
+            mobilen. Det som gjør at en skoletur blir et minne — ikke bare en
+            uke borte fra skolen.
+          </motion.p>
+
+          <div className="mt-16 grid grid-cols-2 lg:grid-cols-3 gap-4">
+            {opplevelser.map((o, i) => (
+              <motion.div
+                key={o.title}
+                className={`relative rounded-2xl overflow-hidden ring-1 ring-white/10 group ${
+                  o.span ? "lg:col-span-2 lg:row-span-2 aspect-square lg:aspect-auto" : "aspect-square"
+                }`}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.05 * i }}
+              >
+                <Image
+                  src={o.image}
+                  alt=""
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-110"
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className={`font-semibold tracking-tight ${o.span ? "text-2xl sm:text-3xl" : "text-base sm:text-lg"}`}>
+                    {o.title}
+                  </h3>
+                  <p className="text-sm text-zinc-400 mt-1">{o.tag}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Placeholder for slides 7-9 */}
       <section className="h-screen flex items-center justify-center bg-black border-t border-zinc-900">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-zinc-600 mb-4">
-            Steg 2 av 8 ferdig
+            Steg 3 av 8 ferdig
           </p>
           <p className="text-2xl text-zinc-500">
-            Slide 4-9 kommer fortløpende
+            Slide 7-9 + bonus kommer fortløpende
           </p>
         </div>
       </section>
     </div>
   );
 }
+
+const hotelImages = [
+  {
+    src: "/skoleturer/napoli-business-vg1/hotel-3-4.png",
+    label: "3- til 4-mannsrom",
+  },
+  {
+    src: "/skoleturer/napoli-business-vg1/hotel-5-6.png",
+    label: "5- til 6-mannsrom",
+  },
+  {
+    src: "/skoleturer/napoli-business-vg1/hotel-enkelt.png",
+    label: "Enkeltrom for lærere",
+  },
+];
+
+const hotelFeatures = [
+  "Sentralt beliggende i hjertet av Napoli",
+  "5 min til metro og kollektivtransport",
+  "Frokost inkludert hver dag",
+  "Eget bad, WiFi og aircondition på rom",
+  "Felles lounge, studieområder og roof terrace",
+  "Resepsjon og 24/7 tilgjengelig kontaktperson",
+];
+
+const programfag = [
+  {
+    icon: "📊",
+    title: "Markedsføring og innovasjon",
+    text: "Pizza napoletana som case på UNESCO-merkevare. Hvordan kultur skaper kommersielle differensiatorer.",
+  },
+  {
+    icon: "🏢",
+    title: "Forretningsdrift",
+    text: "Lokale pizzeria-bedriftsbesøk. Familieforetak, drift, leverandørkjede og oppskalering.",
+  },
+  {
+    icon: "🌍",
+    title: "Kultur og samhandling",
+    text: "Italiensk forretningskultur, samspill mellom historie og næringsliv, normer for gjestfrihet.",
+  },
+];
+
+const koblinger = [
+  { fra: "Pompeii", til: "Arkeologi som kilde til samfunnsforståelse" },
+  { fra: "Pizza napoletana", til: "Matkultur som forretningskonsept" },
+  { fra: "Cappella Sansevero", til: "Kunst som identitet og merkevare" },
+  { fra: "Lokale markeder", til: "Handel, økonomi og urbanisering" },
+  { fra: "Vesuv", til: "Geografi, risiko og næringslivets sårbarhet" },
+];
+
+const opplevelser = [
+  {
+    title: "Pizza napoletana fra steinovn",
+    tag: "Velkomstmiddag",
+    image: "/skoleturer/napoli-business-vg1/pizza.png",
+    span: true,
+  },
+  {
+    title: "Solnedgang over Vesuv",
+    tag: "Kveldsstemning",
+    image: "/skoleturer/napoli-business-vg1/hero.png",
+  },
+  {
+    title: "Pompeii ved morgentime",
+    tag: "Mindre folk, bedre lys",
+    image: "/skoleturer/napoli-business-vg1/pompeii.png",
+  },
+  {
+    title: "Spaccanapoli",
+    tag: "Lokale markeder og smaker",
+    image: "/skoleturer/napoli-business-vg1/napoli-sentrum.png",
+  },
+  {
+    title: "Museo Archeologico",
+    tag: "Verdens største Pompeii-samling",
+    image: "/skoleturer/napoli-business-vg1/museo.png",
+  },
+  {
+    title: "Vesuv-krateret",
+    tag: "Heldagsutflukt med utsikt",
+    image: "/skoleturer/napoli-business-vg1/vesuv.png",
+  },
+];
 
 const pillars = [
   {
