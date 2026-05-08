@@ -8,7 +8,8 @@ export function Footer() {
   const pathname = usePathname();
   if (
     pathname?.startsWith("/presentasjon") ||
-    pathname?.startsWith("/min-tur")
+    pathname?.startsWith("/min-tur") ||
+    pathname?.startsWith("/admin")
   )
     return null;
 
