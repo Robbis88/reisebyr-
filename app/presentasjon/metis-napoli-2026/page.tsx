@@ -22,11 +22,11 @@ export default function MetisNapoliPresentation() {
             alt=""
             fill
             priority
-            className="object-cover"
+            className="object-cover brightness-110"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
         </motion.div>
 
         {/* Brand mark */}
@@ -60,21 +60,21 @@ export default function MetisNapoliPresentation() {
             For Metis videregående · Business vg1
           </motion.p>
           <motion.h1
-            className="text-6xl sm:text-8xl lg:text-9xl font-semibold tracking-tight leading-[0.95]"
+            className="text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.95]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 1.4, ease: "easeOut" }}
           >
-            Napoli
+            Metis i Napoli
             <span className="text-amber-400">.</span>
           </motion.h1>
           <motion.p
-            className="mt-3 text-3xl sm:text-5xl font-light tracking-tight text-zinc-300"
+            className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight text-zinc-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 1 }}
           >
-            5 dager · 4 netter
+            5 dager · 4 netter · 2026
           </motion.p>
           <motion.p
             className="mt-8 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed"
