@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { MusicPlayer } from "@/components/MusicPlayer";
 
 export default function MetisNapoliPresentation() {
   return (
     <div className="bg-black text-white overflow-x-hidden">
+      <MusicPlayer src="/audio/ambient.mp3" />
       {/* SLIDE 1 — Hero */}
       <section className="relative h-screen w-full overflow-hidden">
         <motion.div
