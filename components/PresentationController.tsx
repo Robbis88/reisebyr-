@@ -147,20 +147,56 @@ function sleep(ms: number, signal: AbortSignal) {
   });
 }
 
+function splitIntoChunks(text: string): string[] {
+  const initial = text
+    .split(/(?<=[.!?])\s+|\s+—\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const chunks: string[] = [];
+  for (const s of initial) {
+    if (s.length <= 110) {
+      chunks.push(s);
+      continue;
+    }
+    const parts = s.split(/,\s+/);
+    let buf = "";
+    for (const p of parts) {
+      const candidate = buf ? `${buf}, ${p}` : p;
+      if (candidate.length > 110 && buf) {
+        chunks.push(buf);
+        buf = p;
+      } else {
+        buf = candidate;
+      }
+    }
+    if (buf) chunks.push(buf);
+  }
+  return chunks;
+}
+
 function playVoice(
   audio: HTMLAudioElement,
   src: string,
   signal: AbortSignal,
+  onProgress?: (ratio: number) => void,
 ): Promise<"ended" | "errored" | "aborted"> {
   return new Promise((resolve) => {
     if (signal.aborted) return resolve("aborted");
 
+    const onTimeUpdate = () => {
+      if (!audio.duration || isNaN(audio.duration)) return;
+      onProgress?.(audio.currentTime / audio.duration);
+    };
+
     const cleanup = () => {
       audio.removeEventListener("ended", onEnded);
       audio.removeEventListener("error", onError);
+      audio.removeEventListener("timeupdate", onTimeUpdate);
       signal.removeEventListener("abort", onAbort);
     };
     const onEnded = () => {
+      onProgress?.(1);
       cleanup();
       resolve("ended");
     };
@@ -176,6 +212,7 @@ function playVoice(
 
     audio.addEventListener("ended", onEnded);
     audio.addEventListener("error", onError);
+    audio.addEventListener("timeupdate", onTimeUpdate);
     signal.addEventListener("abort", onAbort);
 
     audio.src = src;
@@ -191,9 +228,13 @@ function playVoice(
 export function PresentationController() {
   const [mode, setMode] = useState<Mode>("idle");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [chunkIndex, setChunkIndex] = useState(0);
   const bgMusicRef = useRef<HTMLAudioElement>(null);
   const voiceRef = useRef<HTMLAudioElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  const currentChunks = splitIntoChunks(stops[currentIndex].subtitle);
+  const totalChars = currentChunks.reduce((s, c) => s + c.length, 0) || 1;
 
   const duckMusic = (down: boolean) => {
     const music = bgMusicRef.current;
@@ -228,9 +269,24 @@ export function PresentationController() {
       }
       if (ac.signal.aborted) return;
 
+      setChunkIndex(0);
+
       if (stop.voice && voice) {
+        const chunks = splitIntoChunks(stop.subtitle);
+        const total = chunks.reduce((s, c) => s + c.length, 0) || 1;
+        const onProgress = (ratio: number) => {
+          let cum = 0;
+          for (let j = 0; j < chunks.length; j++) {
+            cum += chunks[j].length;
+            if (ratio < cum / total) {
+              setChunkIndex(j);
+              return;
+            }
+          }
+          setChunkIndex(chunks.length - 1);
+        };
         duckMusic(true);
-        const result = await playVoice(voice, stop.voice, ac.signal);
+        const result = await playVoice(voice, stop.voice, ac.signal, onProgress);
         if (ac.signal.aborted) return;
         duckMusic(false);
         if (result === "ended") {
@@ -375,22 +431,28 @@ export function PresentationController() {
       </AnimatePresence>
 
       <AnimatePresence mode="wait">
-        {(mode === "playing" || mode === "paused") && (
-          <motion.div
-            key={currentIndex}
-            className="fixed bottom-24 left-0 right-0 z-40 px-6 sm:px-12 pointer-events-none"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="inline-block px-6 py-3 rounded-xl bg-black/75 backdrop-blur-md ring-1 ring-white/10 text-base sm:text-lg text-white leading-relaxed">
-                {stops[currentIndex].subtitle}
-              </p>
-            </div>
-          </motion.div>
-        )}
+        {(mode === "playing" || mode === "paused") &&
+          currentChunks[chunkIndex] && (
+            <motion.div
+              key={`${currentIndex}-${chunkIndex}`}
+              className="fixed bottom-24 left-0 right-0 z-40 px-6 sm:px-12 pointer-events-none"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+            >
+              <div className="max-w-2xl mx-auto text-center">
+                <p
+                  className="inline-block px-5 py-2.5 rounded-lg bg-black/80 backdrop-blur-md ring-1 ring-white/10 text-base sm:text-lg text-white leading-snug"
+                  style={{
+                    textShadow: "0 1px 3px rgba(0,0,0,0.8)",
+                  }}
+                >
+                  {currentChunks[chunkIndex]}
+                </p>
+              </div>
+            </motion.div>
+          )}
       </AnimatePresence>
 
       <AnimatePresence>
