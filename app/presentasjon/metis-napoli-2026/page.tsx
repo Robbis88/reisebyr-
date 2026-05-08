@@ -516,15 +516,291 @@ export default function MetisNapoliPresentation() {
         </div>
       </section>
 
-      {/* Placeholder for slides 7-9 */}
-      <section className="h-screen flex items-center justify-center bg-black border-t border-zinc-900">
-        <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-zinc-600 mb-4">
-            Steg 3 av 8 ferdig
-          </p>
-          <p className="text-2xl text-zinc-500">
-            Slide 7-9 + bonus kommer fortløpende
-          </p>
+      {/* SLIDE 7 — Trygghet */}
+      <section className="relative py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.p
+            className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            Trygghet
+          </motion.p>
+          <motion.h2
+            className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            Vi er der.
+            <br />
+            <span className="text-zinc-500">Hele veien.</span>
+          </motion.h2>
+          <motion.p
+            className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            Som lite Bergen-byrå har vi tid til å være tett på. Det betyr at
+            lærere får oss på telefonen direkte — ikke et call center.
+          </motion.p>
+
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {trygghet.map((t, i) => (
+              <motion.div
+                key={t.title}
+                className="rounded-2xl ring-1 ring-white/10 p-7 bg-black/40"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: 0.07 * i }}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-amber-400 text-2xl">{t.icon}</span>
+                </div>
+                <h3 className="mt-4 text-lg font-semibold tracking-tight">
+                  {t.title}
+                </h3>
+                <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+                  {t.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="mt-16 rounded-2xl ring-1 ring-amber-300/30 bg-amber-400/5 p-8 sm:p-10 max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">
+              Din kontakt
+            </p>
+            <p className="text-2xl sm:text-3xl font-semibold tracking-tight">
+              Carmen Toro · Robert Leganger
+            </p>
+            <p className="mt-3 text-zinc-400">
+              Vi tar telefonen. Hver gang. Også når dere er midt i Pompeii og
+              en elev har glemt passet.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SLIDE 8 — Budsjett */}
+      <section className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.p
+            className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            Budsjett
+          </motion.p>
+          <motion.h2
+            className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-4xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            Alt inkludert.
+            <br />
+            <span className="text-zinc-500">Ingen overraskelser.</span>
+          </motion.h2>
+
+          <div className="mt-16 grid lg:grid-cols-2 gap-10 items-start">
+            <motion.div
+              className="rounded-3xl bg-gradient-to-br from-amber-400/20 via-amber-400/5 to-transparent ring-1 ring-amber-300/30 p-10"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <p className="text-sm uppercase tracking-[0.3em] text-amber-300 mb-3">
+                Total
+              </p>
+              <p className="text-6xl sm:text-7xl lg:text-8xl font-semibold tracking-tight">
+                238 000
+                <span className="text-3xl sm:text-4xl font-light text-zinc-400 ml-2">
+                  kr
+                </span>
+              </p>
+              <div className="mt-8 pt-8 border-t border-white/10">
+                <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 mb-2">
+                  Per person
+                </p>
+                <p className="text-4xl sm:text-5xl font-semibold tracking-tight">
+                  7 438
+                  <span className="text-xl font-light text-zinc-400 ml-2">
+                    kr
+                  </span>
+                </p>
+                <p className="mt-1 text-sm text-zinc-500">
+                  Basert på 32 personer · 30 elever + 2 lærere
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 mb-6">
+                Dette er inkludert
+              </p>
+              <ul className="space-y-4">
+                {inkludert.map((i) => (
+                  <li key={i.label} className="flex items-start gap-4">
+                    <svg
+                      className="mt-1 h-5 w-5 flex-shrink-0 text-amber-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                    <div>
+                      <p className="text-lg font-medium">{i.label}</p>
+                      <p className="text-sm text-zinc-500">{i.detalj}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="mt-20 max-w-4xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-zinc-500 mb-6">
+              Slik fordeler 238 000 kr seg
+            </p>
+            <div className="space-y-3">
+              {fordeling.map((f) => (
+                <div key={f.post}>
+                  <div className="flex justify-between items-baseline mb-1.5">
+                    <span className="text-zinc-300">{f.post}</span>
+                    <span className="text-zinc-100 font-medium">
+                      {f.belop.toLocaleString("nb-NO")} kr
+                    </span>
+                  </div>
+                  <div className="h-1.5 rounded-full bg-zinc-900 overflow-hidden">
+                    <div
+                      className="h-full bg-amber-400/70"
+                      style={{ width: `${(f.belop / 238000) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SLIDE 9 — Finale */}
+      <section className="relative h-screen w-full overflow-hidden border-t border-zinc-900">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.15, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{
+            opacity: { duration: 2, ease: "easeOut" },
+            scale: { duration: 25, ease: "linear" },
+          }}
+        >
+          <Image
+            src="/skoleturer/napoli-business-vg1/hero.png"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+        </motion.div>
+
+        <div className="relative h-full flex flex-col items-center justify-center text-center px-8 sm:px-12 z-10">
+          <motion.p
+            className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1 }}
+          >
+            Klar for å snakke?
+          </motion.p>
+          <motion.h2
+            className="text-5xl sm:text-7xl lg:text-9xl font-semibold tracking-tight leading-[0.95] max-w-5xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1.4, ease: "easeOut", delay: 0.3 }}
+          >
+            Mer enn en skoletur
+            <span className="text-amber-400">.</span>
+          </motion.h2>
+          <motion.p
+            className="mt-8 text-xl sm:text-2xl lg:text-3xl text-zinc-300 font-light max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, delay: 0.7 }}
+          >
+            En opplevelse elevene husker
+            <br />
+            resten av livet.
+          </motion.p>
+          <motion.div
+            className="mt-16 flex flex-col sm:flex-row gap-4 items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, delay: 1.1 }}
+          >
+            <a
+              href="/kontakt?destinasjon=Napoli for Business vg1"
+              className="inline-flex items-center rounded-full bg-amber-400 hover:bg-amber-300 text-zinc-950 px-8 py-4 font-semibold text-lg transition"
+            >
+              Bestill turen
+            </a>
+            <a
+              href="/skoleturer/napoli-business-vg1"
+              className="inline-flex items-center rounded-full ring-1 ring-white/30 hover:ring-white/60 text-white px-8 py-4 font-medium text-lg transition"
+            >
+              Se full turbeskrivelse
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="absolute bottom-12 left-1/2 -translate-x-1/2 text-sm font-semibold tracking-tight"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            <span className="text-zinc-400">NextStop</span>
+            <span className="text-amber-400">Travel</span>
+            <span className="text-zinc-600 ml-3">· Bergen</span>
+          </motion.div>
         </div>
       </section>
     </div>
@@ -579,6 +855,59 @@ const koblinger = [
   { fra: "Cappella Sansevero", til: "Kunst som identitet og merkevare" },
   { fra: "Lokale markeder", til: "Handel, økonomi og urbanisering" },
   { fra: "Vesuv", til: "Geografi, risiko og næringslivets sårbarhet" },
+];
+
+const trygghet = [
+  {
+    icon: "📞",
+    title: "Norsk kontaktperson",
+    text: "Carmen og Robert er tilgjengelige hele turen. Du forholder deg til oss — på norsk.",
+  },
+  {
+    icon: "🕐",
+    title: "Døgnvakt under turen",
+    text: "Akutt-telefon 24/7 fra avgang Bergen til ankomst hjemme. Vi sover lett.",
+  },
+  {
+    icon: "👥",
+    title: "Lokal reiseleder",
+    text: "Italiensk-talende guide fra ankomst til avgang. Hjelper med alt fra metro til legevakt.",
+  },
+  {
+    icon: "🗺️",
+    title: "Ferdig kollektivplan",
+    text: "All lokaltransport bestilt og pakket inn. Læreren slipper å lese italiensk skiltning.",
+  },
+  {
+    icon: "📋",
+    title: "Tydelig dagsprogram",
+    text: "Trykt + digitalt program med klokkeslett, adresser og samlingspunkter for hele turen.",
+  },
+  {
+    icon: "🚨",
+    title: "Nødnummer og rutiner",
+    text: "Lokale nødnumre, nærmeste sykehus, ambassadekontakt — alt klart før avgang.",
+  },
+];
+
+const inkludert = [
+  { label: "Flyreise tur/retur Bergen–Napoli", detalj: "Direktefly med gruppepris" },
+  { label: "All lokal transport", detalj: "Metro, buss, chartret buss til Pompeii og Vesuv" },
+  { label: "Overnatting 4 netter", detalj: "Hotel Partenopeo Student Stay, sentralt" },
+  { label: "Frokost hver dag", detalj: "Inkludert på hotellet" },
+  { label: "2 middager", detalj: "Velkomstpizza + felles avskjedsmiddag" },
+  { label: "Sightseeing og omvisninger", detalj: "Pompeii, Vesuv, museer, byvandring" },
+  { label: "Faglig opplegg og workshops", detalj: "Bedriftsbesøk og oppgaver med formidler" },
+  { label: "Reiseleder fra start til slutt", detalj: "Norsk + italiensk-talende lokal guide" },
+];
+
+const fordeling = [
+  { post: "Flyreise tur/retur", belop: 82000 },
+  { post: "Overnatting (4 netter)", belop: 68000 },
+  { post: "Mat (frokost + 2 middager)", belop: 27000 },
+  { post: "Aktiviteter og omvisninger", belop: 33000 },
+  { post: "Lokal transport", belop: 18000 },
+  { post: "Reiseleder og diverse", belop: 10000 },
 ];
 
 const opplevelser = [
