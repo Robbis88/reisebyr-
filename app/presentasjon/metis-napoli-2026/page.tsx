@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MusicPlayer } from "@/components/MusicPlayer";
+import { PresentationController } from "@/components/PresentationController";
 
 export default function MetisNapoliPresentation() {
   return (
     <div className="bg-black text-white overflow-x-hidden">
-      <MusicPlayer src="/audio/ambient.mp3" />
+      <PresentationController />
       {/* SLIDE 1 — Hero */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section id="slide-1" className="relative h-screen w-full overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1, opacity: 0 }}
@@ -85,26 +85,11 @@ export default function MetisNapoliPresentation() {
             til Business vg1-pensum — innenfor budsjettet på 238 000 kr.
           </motion.p>
 
-          <motion.div
-            className="mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-zinc-500"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1.5 }}
-          >
-            <span>Scroll</span>
-            <motion.span
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="text-amber-400"
-            >
-              ↓
-            </motion.span>
-          </motion.div>
         </div>
       </section>
 
       {/* SLIDE 2 — Hvorfor denne turen */}
-      <section className="relative min-h-screen flex items-center py-24 px-8 sm:px-12 overflow-hidden">
+      <section id="slide-2" className="relative min-h-screen flex items-center py-24 px-8 sm:px-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/skoleturer/napoli-business-vg1/pizza.png"
@@ -183,7 +168,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 3 — Dag-for-dag */}
-      <section className="relative py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900">
+      <section id="slide-3" className="relative py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-6xl mx-auto">
           <motion.p
             className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
@@ -220,7 +205,8 @@ export default function MetisNapoliPresentation() {
             {days.map((day, i) => (
               <motion.article
                 key={day.number}
-                className={`grid lg:grid-cols-2 gap-10 items-center ${
+                id={`dag-${i + 1}`}
+                className={`scroll-mt-24 grid lg:grid-cols-2 gap-10 items-center ${
                   i % 2 === 1 ? "lg:[&>:first-child]:order-2" : ""
                 }`}
                 initial={{ opacity: 0, y: 60 }}
@@ -264,7 +250,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 4 — Hotell */}
-      <section className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
+      <section id="slide-4" className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.p
             className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
@@ -353,7 +339,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 5 — Det faglige */}
-      <section className="relative min-h-screen py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900 overflow-hidden">
+      <section id="slide-5" className="relative min-h-screen py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
           <Image
             src="/skoleturer/napoli-business-vg1/museo.png"
@@ -452,7 +438,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 6 — Kultur & opplevelser */}
-      <section className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
+      <section id="slide-6" className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.p
             className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
@@ -519,7 +505,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 7 — Trygghet */}
-      <section className="relative py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900 overflow-hidden">
+      <section id="slide-7" className="relative py-32 px-8 sm:px-12 bg-zinc-950 border-t border-zinc-900 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.p
             className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
@@ -597,7 +583,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 8 — Budsjett */}
-      <section className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
+      <section id="slide-8" className="relative py-32 px-8 sm:px-12 bg-black border-t border-zinc-900 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.p
             className="text-xs sm:text-sm uppercase tracking-[0.4em] text-amber-300 mb-6"
@@ -719,7 +705,7 @@ export default function MetisNapoliPresentation() {
       </section>
 
       {/* SLIDE 9 — Finale */}
-      <section className="relative h-screen w-full overflow-hidden border-t border-zinc-900">
+      <section id="slide-9" className="relative h-screen w-full overflow-hidden border-t border-zinc-900">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.15, opacity: 0 }}
